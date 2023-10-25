@@ -3,7 +3,7 @@ upstream django_react {
 }
 
 server {
-    listen 80;
+    listen 800;
     client_max_body_size ${UPLOAD_FILE_SIZE_LIMIT}M;
 
     # server_name ${APP_HOST};
