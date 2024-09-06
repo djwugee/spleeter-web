@@ -1,4 +1,4 @@
-FROM node:20.13.1-bullseye
+FROM node:20.17.0-bullseye
 
 RUN mkdir -p /webapp/frontend/assets
 WORKDIR /webapp/frontend
