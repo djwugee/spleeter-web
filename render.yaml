@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: django-backend
+    env: docker
+    dockerfilePath: Dockerfile
+    startCommand: /usr/local/bin/api-entrypoint.sh
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: django_react.settings_docker
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: APP_HOST
+        value: your-app-hostname.com
+      - key: CELERY_BROKER_URL
+        value: redis://celery-redis:6379/0
+      - key: CELERY_RESULT_BACKEND
+        value: redis://celery-redis:6379/0
+      - key: DEFAULT_FILE_STORAGE
+        value: AWS # or FILE/AZURE
+      - key: AWS_ACCESS_KEY_ID
+        value: <your-aws-access-key>
+      - key: AWS_SECRET_ACCESS_KEY
+        value: <your-aws-secret-key>
+      - key: AWS_STORAGE_BUCKET_NAME
+        value: <your-bucket-name>
+      - key: AWS_S3_REGION_NAME
+        value: <your-region>
+      - key: UPLOAD_FILE_SIZE_LIMIT
+        value: 100 # Set the limit to 100MB (or desired value)
+      - key: DJANGO_DEVELOPMENT
+        value: ""
+  - type: worker
+    name: celery-worker
+    env: docker
+    dockerfilePath: Dockerfile
+    startCommand: celery -A django_react worker --loglevel=info
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: django_react.settings_docker
+      - key: CELERY_BROKER_URL
+        value: redis://celery-redis:6379/0
+      - key: CELERY_RESULT_BACKEND
+        value: redis://celery-redis:6379/0
+  - type: redis
+    name: celery-redis
