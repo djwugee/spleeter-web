@@ -7,9 +7,11 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: django_react.settings_docker
       - key: API_HOST
-        value: 0.0.0.0
+        value: https://django-backend-xfkt.onrender.com
       - key: APP_HOST
-        value: your-app-hostname.com
+        value: https://spleeter-web.onrender.com
+      - key: PORT
+        value: 8000
       - key: CELERY_BROKER_URL
         value: redis://celery-redis:6379/0
       - key: CELERY_RESULT_BACKEND
