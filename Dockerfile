@@ -18,4 +18,5 @@ COPY . .
 # Copy over entrypoint script
 COPY api-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/api-entrypoint.sh && ln -s /usr/local/bin/api-entrypoint.sh /
+EXPOSE 8000
 ENTRYPOINT ["api-entrypoint.sh"]
