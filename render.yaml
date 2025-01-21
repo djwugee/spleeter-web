@@ -13,9 +13,9 @@ services:
       - key: PORT
         value: 8000
       - key: CELERY_BROKER_URL
-        value: redis://celery-redis:6379/0
+        value: rediss://red-cu7i9jbv2p9s73bggou0:WGntlRAF8zil01wh8UsxlAb5hFeuDAou@oregon-redis.render.com:6379
       - key: CELERY_RESULT_BACKEND
-        value: redis://celery-redis:6379/0
+        value: rediss://red-cu7i9jbv2p9s73bggou0:WGntlRAF8zil01wh8UsxlAb5hFeuDAou@oregon-redis.render.com:6379
       - key: ALLOWED_HOSTS
         value: "*"
       - key: DEBUG
