@@ -43,3 +43,4 @@ llvmlite==0.39.0
 norbert==0.2.1
 pandas==1.5.3
 typer==0.14.0
+setuptools>=78.1.1 # not directly required, pinned by Snyk to avoid a vulnerability
